@@ -1,0 +1,18 @@
+2018-12-10 00:27:46.941 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-10 00:27:49.350 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+2018-12-10 00:27:49.647 +08:00 [INF] Request finished in 300.125ms 404 
+2018-12-10 00:28:43.316 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Account/ text/plain 39
+2018-12-10 00:28:43.317 +08:00 [INF] Request finished in 1.4093ms 404 
+2018-12-10 00:28:43.334 +08:00 [INF] Connection id "0HLITUD0NNS33", Request id "0HLITUD0NNS33:00000001": the application completed without reading the entire request body.
+2018-12-10 00:30:24.582 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Account/ application/json 103
+2018-12-10 00:30:24.583 +08:00 [INF] Request finished in 0.4539ms 404 
+2018-12-10 00:30:24.584 +08:00 [INF] Connection id "0HLITUD0NNS33", Request id "0HLITUD0NNS33:00000002": the application completed without reading the entire request body.
+2018-12-10 00:30:25.817 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Account/ application/json 103
+2018-12-10 00:30:25.818 +08:00 [INF] Request finished in 24.3595ms 404 
+2018-12-10 00:30:25.818 +08:00 [INF] Connection id "0HLITUD0NNS33", Request id "0HLITUD0NNS33:00000003": the application completed without reading the entire request body.
+2018-12-10 00:31:10.740 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Account/post application/json 103
+2018-12-10 00:31:10.740 +08:00 [INF] Request finished in 0.2986ms 404 
+2018-12-10 00:31:10.743 +08:00 [INF] Connection id "0HLITUD0NNS33", Request id "0HLITUD0NNS33:00000004": the application completed without reading the entire request body.
+2018-12-10 00:31:17.667 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/account/post application/json 103
+2018-12-10 00:31:17.690 +08:00 [INF] Request finished in 23.3867ms 404 
+2018-12-10 00:31:17.691 +08:00 [INF] Connection id "0HLITUD0NNS33", Request id "0HLITUD0NNS33:00000005": the application completed without reading the entire request body.
