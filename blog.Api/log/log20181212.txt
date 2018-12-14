@@ -1,0 +1,239 @@
+2018-12-12 12:47:06.325 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-12 12:47:08.922 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+2018-12-12 12:47:09.338 +08:00 [INF] Request finished in 418.8175ms 404 
+2018-12-12 12:47:16.517 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/book/ text/plain 59
+2018-12-12 12:47:16.639 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-12 12:47:16.708 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-12 12:47:16.732 +08:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing action blog.Api.Controllers.BooksController.Get (blog.Api)
+2018-12-12 12:47:16.747 +08:00 [INF] Authorization failed.
+2018-12-12 12:47:16.752 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2018-12-12 12:47:16.759 +08:00 [INF] Executing ChallengeResult with authentication schemes ([]).
+2018-12-12 12:47:16.771 +08:00 [INF] AuthenticationScheme: Bearer was challenged.
+2018-12-12 12:47:16.774 +08:00 [INF] Executed action blog.Api.Controllers.BooksController.Get (blog.Api) in 39.3969ms
+2018-12-12 12:47:16.781 +08:00 [INF] Request finished in 264.2146ms 401 
+2018-12-12 12:47:16.796 +08:00 [INF] Connection id "0HLIVTJF9TST9", Request id "0HLIVTJF9TST9:00000001": the application completed without reading the entire request body.
+2018-12-12 12:48:28.403 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ text/plain 101
+2018-12-12 12:48:28.405 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-12 12:48:28.406 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-12 12:48:28.430 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:48:28.942 +08:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 415
+2018-12-12 12:48:28.943 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 513.05140000000006ms
+2018-12-12 12:48:28.945 +08:00 [INF] Request finished in 541.2163ms 415 
+2018-12-12 12:48:28.945 +08:00 [INF] Connection id "0HLIVTJF9TST9", Request id "0HLIVTJF9TST9:00000002": the application completed without reading the entire request body.
+2018-12-12 12:48:37.039 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ application/json 101
+2018-12-12 12:48:37.041 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:48:37.099 +08:00 [INF] Executing action method blog.Api.Controllers.AccountController.Post (blog.Api) with arguments ([""]) - Validation state: "Invalid"
+2018-12-12 12:48:37.901 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 859.96660000000008ms
+2018-12-12 12:48:37.902 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.AccountController.Post(RegistrationViewModel model) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/AccountController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-12 12:48:37.962 +08:00 [INF] Request finished in 923.2733ms 500 text/html; charset=utf-8
+2018-12-12 12:48:57.550 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ application/json 98
+2018-12-12 12:48:57.550 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:48:57.551 +08:00 [INF] Executing action method blog.Api.Controllers.AccountController.Post (blog.Api) with arguments ([""]) - Validation state: "Invalid"
+2018-12-12 12:48:57.900 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 350.26210000000003ms
+2018-12-12 12:48:57.901 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.AccountController.Post(RegistrationViewModel model) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/AccountController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-12 12:48:57.909 +08:00 [INF] Request finished in 360.1401ms 500 text/html; charset=utf-8
+2018-12-12 12:49:27.545 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ application/json 98
+2018-12-12 12:49:27.549 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:49:27.551 +08:00 [INF] Executing action method blog.Api.Controllers.AccountController.Post (blog.Api) with arguments ([""]) - Validation state: "Invalid"
+2018-12-12 12:49:49.266 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 21715.8553ms
+2018-12-12 12:49:49.269 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.AccountController.Post(RegistrationViewModel model) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/AccountController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-12 12:49:49.278 +08:00 [INF] Request finished in 21732.1236ms 500 text/html; charset=utf-8
+2018-12-12 12:50:01.392 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ application/json 98
+2018-12-12 12:50:01.392 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:50:01.394 +08:00 [INF] Executing action method blog.Api.Controllers.AccountController.Post (blog.Api) with arguments ([""]) - Validation state: "Invalid"
+2018-12-12 12:50:33.085 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 31691.549000000003ms
+2018-12-12 12:50:33.085 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.AccountController.Post(RegistrationViewModel model) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/AccountController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-12 12:50:33.094 +08:00 [INF] Request finished in 31702.0758ms 500 text/html; charset=utf-8
+2018-12-12 12:50:40.925 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ application/json 98
+2018-12-12 12:50:40.925 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:50:40.948 +08:00 [INF] Executing action method blog.Api.Controllers.AccountController.Post (blog.Api) with arguments ([""]) - Validation state: "Invalid"
+2018-12-12 12:51:03.053 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 22127.039500000003ms
+2018-12-12 12:51:03.054 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.AccountController.Post(RegistrationViewModel model) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/AccountController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-12 12:51:03.062 +08:00 [INF] Request finished in 22136.3471ms 500 text/html; charset=utf-8
+2018-12-12 12:51:29.668 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ application/json 103
+2018-12-12 12:51:29.670 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:51:29.705 +08:00 [INF] Executing action method blog.Api.Controllers.AccountController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.RegistrationViewModel"]) - Validation state: "Valid"
+2018-12-12 12:51:40.542 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-12 12:51:41.312 +08:00 [INF] Executed DbCommand (156ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Discriminator`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`FirstName`, `u`.`LastName`
+FROM `AspNetUsers` AS `u`
+WHERE (`u`.`Discriminator` = 'User') AND (`u`.`NormalizedEmail` = @__normalizedEmail_0)
+LIMIT 1
+2018-12-12 12:51:41.596 +08:00 [INF] Executed DbCommand (67ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Discriminator`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`FirstName`, `u`.`LastName`
+FROM `AspNetUsers` AS `u`
+WHERE (`u`.`Discriminator` = 'User') AND (`u`.`NormalizedUserName` = @__normalizedUserName_0)
+LIMIT 1
+2018-12-12 12:51:41.872 +08:00 [INF] Executed DbCommand (52ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256), @p16='?' (Size = 4000), @p17='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `AspNetUsers` (`Id`, `AccessFailedCount`, `ConcurrencyStamp`, `Discriminator`, `Email`, `EmailConfirmed`, `LockoutEnabled`, `LockoutEnd`, `NormalizedEmail`, `NormalizedUserName`, `PasswordHash`, `PhoneNumber`, `PhoneNumberConfirmed`, `SecurityStamp`, `TwoFactorEnabled`, `UserName`, `FirstName`, `LastName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+2018-12-12 12:51:42.043 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Authors` (`Gender`, `UserId`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Authors`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2018-12-12 12:51:42.108 +08:00 [INF] Executed action method blog.Api.Controllers.AccountController.Post (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 12400.0962ms.
+2018-12-12 12:51:42.118 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2018-12-12 12:51:42.121 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 12451.158500000001ms
+2018-12-12 12:51:42.126 +08:00 [INF] Request finished in 12477.8495ms 200 text/plain; charset=utf-8
+2018-12-12 12:51:45.407 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/account/ application/json 103
+2018-12-12 12:51:45.407 +08:00 [INF] Route matched with {action = "Post", controller = "Account"}. Executing action blog.Api.Controllers.AccountController.Post (blog.Api)
+2018-12-12 12:51:45.411 +08:00 [INF] Executing action method blog.Api.Controllers.AccountController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.RegistrationViewModel"]) - Validation state: "Valid"
+2018-12-12 12:51:48.357 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-12 12:51:48.552 +08:00 [INF] Executed DbCommand (91ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Discriminator`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`FirstName`, `u`.`LastName`
+FROM `AspNetUsers` AS `u`
+WHERE (`u`.`Discriminator` = 'User') AND (`u`.`NormalizedEmail` = @__normalizedEmail_0)
+LIMIT 1
+2018-12-12 12:51:48.589 +08:00 [INF] Executed action method blog.Api.Controllers.AccountController.Post (blog.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 3177.541ms.
+2018-12-12 12:51:48.589 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2018-12-12 12:51:48.590 +08:00 [INF] Executed action blog.Api.Controllers.AccountController.Post (blog.Api) in 3182.6321000000003ms
+2018-12-12 12:51:48.590 +08:00 [INF] Request finished in 3184.2466ms 400 text/plain; charset=utf-8
+2018-12-12 12:52:17.596 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/token/ application/json 58
+2018-12-12 12:52:17.603 +08:00 [INF] Route matched with {action = "CreateToken", controller = "Token"}. Executing action blog.Api.Controllers.TokenController.CreateToken (blog.Api)
+2018-12-12 12:52:17.606 +08:00 [INF] Executing action method blog.Api.Controllers.TokenController.CreateToken (blog.Api) with arguments (["blog.Infrastructure.ViewModels.LoginViewModel"]) - Validation state: "Valid"
+2018-12-12 12:52:17.612 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-12 12:52:17.734 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Discriminator`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`FirstName`, `u`.`LastName`
+FROM `AspNetUsers` AS `u`
+WHERE (`u`.`Discriminator` = 'User') AND (`u`.`NormalizedUserName` = @__normalizedUserName_0)
+LIMIT 1
+2018-12-12 12:52:17.816 +08:00 [INF] Executed action method blog.Api.Controllers.TokenController.CreateToken (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 209.8382ms.
+2018-12-12 12:52:17.816 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2018-12-12 12:52:17.825 +08:00 [INF] Executed action blog.Api.Controllers.TokenController.CreateToken (blog.Api) in 221.9571ms
+2018-12-12 12:52:17.828 +08:00 [INF] Request finished in 232.3852ms 200 application/json; charset=utf-8
+2018-12-12 12:52:22.591 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/token/ application/json 57
+2018-12-12 12:52:22.593 +08:00 [INF] Route matched with {action = "CreateToken", controller = "Token"}. Executing action blog.Api.Controllers.TokenController.CreateToken (blog.Api)
+2018-12-12 12:52:22.596 +08:00 [INF] Executing action method blog.Api.Controllers.TokenController.CreateToken (blog.Api) with arguments (["blog.Infrastructure.ViewModels.LoginViewModel"]) - Validation state: "Valid"
+2018-12-12 12:52:22.596 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-12 12:52:22.614 +08:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Discriminator`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`FirstName`, `u`.`LastName`
+FROM `AspNetUsers` AS `u`
+WHERE (`u`.`Discriminator` = 'User') AND (`u`.`NormalizedUserName` = @__normalizedUserName_0)
+LIMIT 1
+2018-12-12 12:52:22.657 +08:00 [WRN] Invalid password for user 873a34a6-62f5-46f9-bb97-a5c31de05ba4.
+2018-12-12 12:52:22.657 +08:00 [INF] Executed action method blog.Api.Controllers.TokenController.CreateToken (blog.Api), returned result Microsoft.AspNetCore.Mvc.UnauthorizedResult in 61.4866ms.
+2018-12-12 12:52:22.658 +08:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 401
+2018-12-12 12:52:22.658 +08:00 [INF] Executed action blog.Api.Controllers.TokenController.CreateToken (blog.Api) in 64.6999ms
+2018-12-12 12:52:22.658 +08:00 [INF] Request finished in 66.8649ms 401 
+2018-12-12 12:52:44.096 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/token/ application/json 58
+2018-12-12 12:52:44.096 +08:00 [INF] Route matched with {action = "CreateToken", controller = "Token"}. Executing action blog.Api.Controllers.TokenController.CreateToken (blog.Api)
+2018-12-12 12:52:44.097 +08:00 [INF] Executing action method blog.Api.Controllers.TokenController.CreateToken (blog.Api) with arguments (["blog.Infrastructure.ViewModels.LoginViewModel"]) - Validation state: "Valid"
+2018-12-12 12:52:44.098 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-12 12:52:44.135 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Discriminator`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`FirstName`, `u`.`LastName`
+FROM `AspNetUsers` AS `u`
+WHERE (`u`.`Discriminator` = 'User') AND (`u`.`NormalizedUserName` = @__normalizedUserName_0)
+LIMIT 1
+2018-12-12 12:52:44.156 +08:00 [INF] Executed action method blog.Api.Controllers.TokenController.CreateToken (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 59.2851ms.
+2018-12-12 12:52:44.157 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2018-12-12 12:52:44.157 +08:00 [INF] Executed action blog.Api.Controllers.TokenController.CreateToken (blog.Api) in 60.8078ms
+2018-12-12 12:52:44.157 +08:00 [INF] Request finished in 61.6486ms 200 application/json; charset=utf-8
+2018-12-12 12:53:11.527 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/book/ application/json 58
+2018-12-12 12:53:11.534 +08:00 [INF] Successfully validated the token.
+2018-12-12 12:53:11.536 +08:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing action blog.Api.Controllers.BooksController.Get (blog.Api)
+2018-12-12 12:53:11.537 +08:00 [INF] Authorization was successful.
+2018-12-12 12:53:11.542 +08:00 [INF] Executing action method blog.Api.Controllers.BooksController.Get (blog.Api) - Validation state: "Valid"
+2018-12-12 12:53:11.548 +08:00 [INF] Executed action method blog.Api.Controllers.BooksController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5.9516ms.
+2018-12-12 12:53:11.548 +08:00 [INF] Executing ObjectResult, writing value of type 'blog.Api.Controllers.BooksController+Book[]'.
+2018-12-12 12:53:11.554 +08:00 [INF] Executed action blog.Api.Controllers.BooksController.Get (blog.Api) in 18.055600000000002ms
+2018-12-12 12:53:11.555 +08:00 [INF] Request finished in 27.4328ms 200 application/json; charset=utf-8
+2018-12-12 12:53:11.556 +08:00 [INF] Connection id "0HLIVTJF9TST9", Request id "0HLIVTJF9TST9:0000000D": the application completed without reading the entire request body.

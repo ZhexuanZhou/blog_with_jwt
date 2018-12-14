@@ -11,6 +11,8 @@
     <Folder Include="Repositories\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Databases\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Databases\EntityConfigurations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0" />

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using blog.Core.Entities;
 using blog.Infrastructure.Databases;
+using blog.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -65,6 +66,7 @@ namespace blog.Api
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
                 });
+            services.AddInfrastructureExtension();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,6 +5,8 @@ namespace blog.Core.Interfaces
 {
     public interface IUnitOfWork
     {
-        Task<bool> SaveChangeAsync();
+        IAuthorRepository AuthorRepository { get; }
+
+        Task<bool> SaveChangesAsync();
     }
 }

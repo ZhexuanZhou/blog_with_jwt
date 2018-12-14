@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using blog.Infrastructure.Databases;
 
 namespace blog.Infrastructure.Migrations
 {
     [DbContext(typeof(RepositoryDbContext))]
-    partial class RepositoryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181214143430_newEntitiesWithModified")]
+    partial class newEntitiesWithModified
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,8 +202,6 @@ namespace blog.Infrastructure.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AuthorId");
-
                     b.Property<string>("Body");
 
                     b.Property<DateTime>("CreateDate");
@@ -210,13 +210,7 @@ namespace blog.Infrastructure.Migrations
 
                     b.Property<int>("ParentId");
 
-                    b.Property<int?>("PostId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.HasIndex("PostId");
 
                     b.ToTable("Comments");
                 });
@@ -225,8 +219,6 @@ namespace blog.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AuthorId");
 
                     b.Property<string>("Body");
 
@@ -238,27 +230,7 @@ namespace blog.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
-
                     b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("blog.Core.Entities.PostTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("PostId");
-
-                    b.Property<int>("TagId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("PostTag");
                 });
 
             modelBuilder.Entity("blog.Core.Entities.Tag", b =>
@@ -334,38 +306,6 @@ namespace blog.Infrastructure.Migrations
                     b.HasOne("blog.Core.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("blog.Core.Entities.Comment", b =>
-                {
-                    b.HasOne("blog.Core.Entities.Author", "Author")
-                        .WithMany("Comments")
-                        .HasForeignKey("AuthorId");
-
-                    b.HasOne("blog.Core.Entities.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId");
-                });
-
-            modelBuilder.Entity("blog.Core.Entities.Post", b =>
-                {
-                    b.HasOne("blog.Core.Entities.Author", "Author")
-                        .WithMany("Posts")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("blog.Core.Entities.PostTag", b =>
-                {
-                    b.HasOne("blog.Core.Entities.Post", "Post")
-                        .WithMany("PostTags")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("blog.Core.Entities.Tag", "Tag")
-                        .WithMany("PostTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
