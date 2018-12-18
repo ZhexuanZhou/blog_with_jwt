@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace blog.Core.Entities
 {
-    public class Author
+    public class Author : Entity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Gender { get; set; }
 
         public string UserId { get; set; }

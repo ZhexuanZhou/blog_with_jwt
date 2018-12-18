@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace blog.Core.Entities
 {
-    public class Post
+    public class Post : Entity
     {
         //private static readonly char delimiter = ';';
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public DateTime CreateTime { get; set; }

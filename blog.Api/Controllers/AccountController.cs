@@ -46,7 +46,7 @@ namespace blog.Api.Controllers
             //if (!result.Succeeded) 
                 //return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, ModelState));
 
-            await _unitOfWork.AuthorRepository.AddAsync(new Author{ UserId = userIdentity.Id});
+            await _unitOfWork.AuthorRepository.AddAsync(new Author{ UserId = userIdentity.Id, Gender=model.Gender});
             await _unitOfWork.SaveChangesAsync(); 
 
             return new OkObjectResult("Account created");

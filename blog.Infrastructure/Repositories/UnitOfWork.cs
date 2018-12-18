@@ -10,6 +10,10 @@ namespace blog.Infrastructure.Repositories
     {
         private readonly RepositoryDbContext _repositoryDbContext;
         private IAuthorRepository _authorRepository;
+        private ICommentRepository _commentRepository;
+        private IPostRepository _postRepository;
+        private IPostTagRepository _postTagRepository;
+        private ITagRepository _tagRepository;
 
         public UnitOfWork(RepositoryDbContext repositoryDbContext)
         {
@@ -28,6 +32,54 @@ namespace blog.Infrastructure.Repositories
             }
         }
 
+        public ICommentRepository CommentRepository
+        {
+            get
+            {
+                if(_commentRepository == null)
+                {
+                    _commentRepository = new CommentRepository(_repositoryDbContext);
+                }
+                return _commentRepository;
+            }
+        }
+
+        public IPostRepository PostRepository
+        {
+            get
+            {
+                if (_postRepository == null)
+                {
+                    _postRepository = new PostRepository(_repositoryDbContext);
+                }
+                return _postRepository;
+            }
+        }
+
+
+        public IPostTagRepository PostTagRepository
+        {
+            get
+            {
+                if(_postTagRepository ==null)
+                {
+                    _postTagRepository = new PostTagRepository(_repositoryDbContext);
+                }
+                return _postTagRepository;
+            }
+        }
+
+        public ITagRepository TagRepository
+        {
+            get
+            {
+                if(_tagRepository == null)
+                {
+                    _tagRepository = new TagRepository(_repositoryDbContext);
+                }
+                return _tagRepository;
+            }
+        }
 
         public async Task<bool> SaveChangesAsync()
         {

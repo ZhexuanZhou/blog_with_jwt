@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using blog.Infrastructure.Databases;
 
 namespace blog.Infrastructure.Migrations
 {
     [DbContext(typeof(RepositoryDbContext))]
-    partial class RepositoryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181218141103_modify")]
+    partial class modify
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,7 +202,7 @@ namespace blog.Infrastructure.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AuthorId");
+                    b.Property<int>("AuthorId");
 
                     b.Property<string>("Body");
 
@@ -210,7 +212,7 @@ namespace blog.Infrastructure.Migrations
 
                     b.Property<int>("ParentId");
 
-                    b.Property<int?>("PostId");
+                    b.Property<int>("PostId");
 
                     b.HasKey("Id");
 
@@ -245,20 +247,17 @@ namespace blog.Infrastructure.Migrations
 
             modelBuilder.Entity("blog.Core.Entities.PostTag", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
                     b.Property<int>("PostId");
 
                     b.Property<int>("TagId");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Id");
 
-                    b.HasIndex("PostId");
+                    b.HasKey("PostId", "TagId");
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("PostTag");
+                    b.ToTable("PostTags");
                 });
 
             modelBuilder.Entity("blog.Core.Entities.Tag", b =>
@@ -340,11 +339,13 @@ namespace blog.Infrastructure.Migrations
                 {
                     b.HasOne("blog.Core.Entities.Author", "Author")
                         .WithMany("Comments")
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("blog.Core.Entities.Post", "Post")
                         .WithMany()
-                        .HasForeignKey("PostId");
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("blog.Core.Entities.Post", b =>
