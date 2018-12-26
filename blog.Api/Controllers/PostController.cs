@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using blog.Core.Entities;
 using blog.Core.Interfaces;
+using blog.Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace blog.Api.Controllers
@@ -10,10 +13,14 @@ namespace blog.Api.Controllers
     public class PostController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public PostController(IUnitOfWork unitOfWork)
+        public PostController(
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         [HttpGet(Name = "GetPosts")]
@@ -21,7 +28,8 @@ namespace blog.Api.Controllers
             [FromHeader(Name = "Accept")]string mediaType)
         {
             var postsList = await _unitOfWork.PostRepository.GetAllPostAsync(postParameters);
-            return Ok(postsList);
+            var postResources = _mapper.Map<IEnumerable<Post>, IEnumerable<PostViewModel>>(postsList);
+            return Ok(postResources);
         }
     }
 }

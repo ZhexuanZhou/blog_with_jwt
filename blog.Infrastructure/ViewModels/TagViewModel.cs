@@ -3,8 +3,7 @@ namespace blog.Infrastructure.ViewModels
 {
     public class TagViewModel
     {
-        public TagViewModel()
-        {
-        }
+        public int Id { get; set; }
+        public string TagName { get; set; }
     }
 }

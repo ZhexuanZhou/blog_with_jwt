@@ -3487,3 +3487,83 @@ LIMIT @__p_1 OFFSET @__p_0
 2018-12-18 22:37:05.663 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 3039.9724ms
 2018-12-18 22:37:05.664 +08:00 [INF] Request finished in 3043.1955ms 200 application/json; charset=utf-8
 2018-12-18 22:37:05.665 +08:00 [INF] Connection id "0HLJ4UO0NR9L2", Request id "0HLJ4UO0NR9L2:00000003": the application completed without reading the entire request body.
+2018-12-18 22:39:02.101 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-18 22:39:02.782 +08:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-18 22:39:02.865 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-18 22:39:02.874 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-18 22:39:02.879 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-18 22:39:02.960 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-18 22:39:07.395 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?pagesize=1 application/json 58
+2018-12-18 22:39:07.548 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-18 22:39:07.598 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-18 22:39:07.868 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2018-12-18 22:39:07.922 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2018-12-18 22:39:16.723 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-18 22:39:16.828 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2018-12-18 22:39:16.855 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_1)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2018-12-18 22:39:17.037 +08:00 [INF] Executed DbCommand (52ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`
+FROM `Posts` AS `p`
+LIMIT @__p_1 OFFSET @__p_0
+2018-12-18 22:39:17.121 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 9188.8017ms.
+2018-12-18 22:39:17.144 +08:00 [INF] Executing ObjectResult, writing value of type 'blog.Core.Entities.PaginatedList`1[[blog.Core.Entities.Post, blog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2018-12-18 22:39:17.185 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 9313.3819ms
+2018-12-18 22:39:17.201 +08:00 [INF] Request finished in 9806.0225ms 200 application/json; charset=utf-8
+2018-12-18 22:39:17.219 +08:00 [INF] Connection id "0HLJ4UQ8AMFJ6", Request id "0HLJ4UQ8AMFJ6:00000001": the application completed without reading the entire request body.
+2018-12-18 22:39:27.680 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?pagesize=1&pageindex=1 application/json 58
+2018-12-18 22:39:27.683 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-18 22:39:27.684 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-18 22:39:27.685 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2018-12-18 22:39:27.689 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2018-12-18 22:39:30.559 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-18 22:39:30.597 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2018-12-18 22:39:30.611 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2018-12-18 22:39:30.668 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`
+FROM `Posts` AS `p`
+LIMIT @__p_0 OFFSET @__p_0
+2018-12-18 22:39:30.670 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2981.0419ms.
+2018-12-18 22:39:30.671 +08:00 [INF] Executing ObjectResult, writing value of type 'blog.Core.Entities.PaginatedList`1[[blog.Core.Entities.Post, blog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2018-12-18 22:39:30.672 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 2986.8039000000003ms
+2018-12-18 22:39:30.672 +08:00 [INF] Request finished in 2992.1291ms 200 application/json; charset=utf-8
+2018-12-18 22:39:30.673 +08:00 [INF] Connection id "0HLJ4UQ8AMFJ6", Request id "0HLJ4UQ8AMFJ6:00000002": the application completed without reading the entire request body.

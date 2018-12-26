@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace blog.Api
 {
@@ -36,7 +37,11 @@ namespace blog.Api
                 options.UseMySql(Configuration.GetConnectionString("BlogDbContext"));
             });
             services.AddAutoMapper();
-            services.AddMvc();
+            services
+                .AddMvc()
+                .AddJsonOptions(options => {
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                });
 
             // 添加Identity
             var builder = services.AddIdentityCore<User>(o =>
