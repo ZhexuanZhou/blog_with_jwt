@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using blog.Core.Entities;
 
 namespace blog.Infrastructure.ViewModels
 {
@@ -11,6 +12,6 @@ namespace blog.Infrastructure.ViewModels
         public DateTime LastModify { get; set; }
         public int AuthorId { get; set; }
         public string AuthorName { get; set; }
-        public List<TagViewModel> Tags { get; set; }
+        public List<Tag> Tags { get; set; }
     }
 }

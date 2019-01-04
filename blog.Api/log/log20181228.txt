@@ -1,0 +1,1048 @@
+2018-12-28 09:03:17.287 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:03:18.265 +08:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:03:18.340 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:03:18.346 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:03:18.350 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:03:18.415 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:03:22.985 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:03:23.148 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:03:23.208 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:03:23.518 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:03:24.003 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:03:24.044 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:03:24.192 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:03:24.369 +08:00 [INF] Executed DbCommand (68ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:03:25.080 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 1557.6329ms
+2018-12-28 09:03:25.086 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 67
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:03:25.148 +08:00 [INF] Request finished in 2163.0647ms 500 text/html; charset=utf-8
+2018-12-28 09:11:52.500 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:11:53.034 +08:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:11:53.104 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:11:53.109 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:11:53.113 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:11:53.172 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:12:02.182 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:12:02.308 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:12:02.354 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:12:02.599 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:12:03.028 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:12:03.070 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:12:03.212 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:12:03.336 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:12:04.138 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 1535.1135000000002ms
+2018-12-28 09:12:04.143 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 67
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:12:04.202 +08:00 [INF] Request finished in 2021.0097ms 500 text/html; charset=utf-8
+2018-12-28 09:13:21.531 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:13:22.371 +08:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:13:22.496 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:13:22.505 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:13:22.511 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:13:22.643 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:13:24.326 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:13:24.507 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:13:24.560 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:13:24.779 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:13:25.285 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:13:25.326 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:13:25.484 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:13:25.594 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:13:26.219 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 1436.8027ms
+2018-12-28 09:13:26.224 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 67
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:13:26.288 +08:00 [INF] Request finished in 1963.8421ms 500 text/html; charset=utf-8
+2018-12-28 09:13:46.620 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:13:46.622 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:13:46.623 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:13:46.625 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:13:46.630 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:13:58.871 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:13:59.038 +08:00 [INF] Executed DbCommand (137ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:14:25.817 +08:00 [INF] Executed DbCommand (53ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:14:51.779 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 65151.1828ms
+2018-12-28 09:14:51.779 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 67
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:14:51.787 +08:00 [INF] Request finished in 65164.5912ms 500 text/html; charset=utf-8
+2018-12-28 09:15:03.009 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:15:03.011 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:15:03.012 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:15:03.012 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:15:21.016 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:15:21.017 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:15:21.101 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:15:21.225 +08:00 [INF] Executed DbCommand (68ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:16:19.162 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:16:19.760 +08:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:19.834 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:19.841 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:19.846 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:19.917 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:16:21.120 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:16:21.243 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:16:21.286 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:16:21.479 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:16:21.870 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:16:21.949 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:16:22.088 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:16:22.257 +08:00 [INF] Executed DbCommand (64ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:16:49.461 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:16:49.976 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:50.044 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:50.050 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:50.054 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:16:50.114 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:16:56.146 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:16:56.291 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:16:56.339 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:16:56.538 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:16:56.951 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:16:56.990 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:16:57.127 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:16:57.250 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:17:01.320 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__tag_TagName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`
+        WHERE `t`.`TagName` = @__tag_TagName_0)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:17:01.326 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tag_TagName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`
+        WHERE `t`.`TagName` = @__tag_TagName_0)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:17:01.333 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Post (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4372.8128000000006ms.
+2018-12-28 09:17:01.349 +08:00 [INF] Executing ObjectResult, writing value of type 'blog.Core.Entities.Post'.
+2018-12-28 09:17:01.378 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 4837.4933ms
+2018-12-28 09:17:01.388 +08:00 [INF] Request finished in 5242.5148ms 200 application/json; charset=utf-8
+2018-12-28 09:22:42.066 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:22:42.789 +08:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:22:42.880 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:22:42.887 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:22:42.892 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:22:42.956 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:22:44.109 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:22:44.242 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:22:44.288 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:22:44.494 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:22:44.920 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:22:44.959 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:22:45.104 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:22:45.320 +08:00 [INF] Executed DbCommand (98ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:22:48.542 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__tag_TagName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`
+        WHERE `t`.`TagName` = @__tag_TagName_0)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:22:48.546 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tag_TagName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`
+        WHERE `t`.`TagName` = @__tag_TagName_0)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:22:48.552 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Post (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3623.7842ms.
+2018-12-28 09:22:48.570 +08:00 [INF] Executing ObjectResult, writing value of type 'null'.
+2018-12-28 09:22:48.580 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 4080.0421ms
+2018-12-28 09:22:48.598 +08:00 [INF] Request finished in 4489.2461ms 204 
+2018-12-28 09:23:25.526 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/token application/json 58
+2018-12-28 09:23:25.527 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:23:25.528 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:23:25.536 +08:00 [INF] Route matched with {action = "CreateToken", controller = "Token"}. Executing action blog.Api.Controllers.TokenController.CreateToken (blog.Api)
+2018-12-28 09:23:25.541 +08:00 [INF] Executing action method blog.Api.Controllers.TokenController.CreateToken (blog.Api) with arguments (["blog.Infrastructure.ViewModels.LoginViewModel"]) - Validation state: "Valid"
+2018-12-28 09:23:25.554 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:23:25.644 +08:00 [INF] Executed DbCommand (73ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Discriminator`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`FirstName`, `u`.`LastName`
+FROM `AspNetUsers` AS `u`
+WHERE (`u`.`Discriminator` = 'User') AND (`u`.`NormalizedUserName` = @__normalizedUserName_0)
+LIMIT 1
+2018-12-28 09:23:25.694 +08:00 [INF] Executed action method blog.Api.Controllers.TokenController.CreateToken (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 152.18720000000002ms.
+2018-12-28 09:23:25.695 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2018-12-28 09:23:25.705 +08:00 [INF] Executed action blog.Api.Controllers.TokenController.CreateToken (blog.Api) in 168.6731ms
+2018-12-28 09:23:25.707 +08:00 [INF] Request finished in 181.0658ms 200 application/json; charset=utf-8
+2018-12-28 09:23:39.627 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:23:39.629 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:23:39.630 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:23:39.630 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:23:39.632 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:23:39.633 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:23:39.729 +08:00 [INF] Executed DbCommand (71ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:23:40.026 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:23:42.970 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tag_TagName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`
+        WHERE `t`.`TagName` = @__tag_TagName_0)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:23:42.972 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tag_TagName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`
+        WHERE `t`.`TagName` = @__tag_TagName_0)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:23:42.972 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Post (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3340.2926ms.
+2018-12-28 09:23:42.973 +08:00 [INF] Executing ObjectResult, writing value of type 'null'.
+2018-12-28 09:23:42.973 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 3342.6035ms
+2018-12-28 09:23:42.974 +08:00 [INF] Request finished in 3346.3363ms 204 
+2018-12-28 09:23:56.647 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:23:56.648 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:23:56.649 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:23:56.650 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:23:56.675 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:23:56.677 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:23:56.775 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:23:56.875 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:30:48.875 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:30:49.535 +08:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:30:49.642 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:30:49.648 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:30:49.653 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:30:49.720 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:30:51.494 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:30:51.642 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:30:51.690 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:30:51.906 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:30:52.316 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:30:52.355 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:30:52.496 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:30:52.615 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:30:58.587 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 6673.3785000000007ms
+2018-12-28 09:30:58.600 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'PostTag' cannot be tracked because another instance with the same key value for {'PostId', 'TagId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 containingPrincipalKeys, IReadOnlyList`1 containingForeignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 keys, IReadOnlyList`1 foreignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.PropertyChanged(InternalEntityEntry entry, IPropertyBase propertyBase, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.PropertyChanged(InternalEntityEntry entry, IPropertyBase property, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.SetForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.DelayedFixup(InternalEntityEntry entry, INavigation navigation, InternalEntityEntry referencedEntry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.InitialFixup(InternalEntityEntry entry, ISet`1 handledForeignKeys, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.FireStateChanged(EntityState oldState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Nullable`1 forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode node, Boolean force, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityStateAsync(InternalEntityEntry entry, EntityState entityState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.AddAsync[TEntity](TEntity entity, CancellationToken cancellationToken)
+   at blog.Infrastructure.Repositories.RepositoryBase`1.AddAsync(TEntity entity) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Infrastructure/Repositories/RepositoryBase.cs:line 29
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:30:58.701 +08:00 [INF] Request finished in 7206.654ms 500 text/html; charset=utf-8
+2018-12-28 09:31:33.041 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:31:33.042 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:31:33.043 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:31:33.044 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:31:33.054 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:32:06.462 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:32:06.593 +08:00 [INF] Executed DbCommand (99ms) [Parameters=[@__get_Item_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`Gender`, `e`.`UserId`
+FROM `Authors` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1
+2018-12-28 09:32:08.021 +08:00 [INF] Executed DbCommand (262ms) [Parameters=[@__get_Item_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`ConcurrencyStamp`, `e`.`Discriminator`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`FirstName`, `e`.`LastName`
+FROM `AspNetUsers` AS `e`
+WHERE (`e`.`Discriminator` = 'User') AND (`e`.`Id` = @__get_Item_0)
+LIMIT 1
+2018-12-28 09:32:28.527 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 55481.685900000004ms
+2018-12-28 09:32:28.528 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'PostTag' cannot be tracked because another instance with the same key value for {'PostId', 'TagId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 containingPrincipalKeys, IReadOnlyList`1 containingForeignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 keys, IReadOnlyList`1 foreignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.PropertyChanged(InternalEntityEntry entry, IPropertyBase propertyBase, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.PropertyChanged(InternalEntityEntry entry, IPropertyBase property, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.SetForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.DelayedFixup(InternalEntityEntry entry, INavigation navigation, InternalEntityEntry referencedEntry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.InitialFixup(InternalEntityEntry entry, ISet`1 handledForeignKeys, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.FireStateChanged(EntityState oldState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Nullable`1 forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode node, Boolean force, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityStateAsync(InternalEntityEntry entry, EntityState entityState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.AddAsync[TEntity](TEntity entity, CancellationToken cancellationToken)
+   at blog.Infrastructure.Repositories.RepositoryBase`1.AddAsync(TEntity entity) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Infrastructure/Repositories/RepositoryBase.cs:line 29
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:32:28.542 +08:00 [INF] Request finished in 55499.3803ms 500 text/html; charset=utf-8
+2018-12-28 09:33:33.449 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:33:34.030 +08:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:33:34.109 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:33:34.114 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:33:34.120 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:33:34.185 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:33:35.067 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:33:35.192 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:33:35.236 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:33:35.434 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:33:35.838 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:33:39.733 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:33:40.748 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 5311.0807ms
+2018-12-28 09:33:40.750 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'PostTag' cannot be tracked because another instance with the same key value for {'PostId', 'TagId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 containingPrincipalKeys, IReadOnlyList`1 containingForeignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 keys, IReadOnlyList`1 foreignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.PropertyChanged(InternalEntityEntry entry, IPropertyBase propertyBase, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.PropertyChanged(InternalEntityEntry entry, IPropertyBase property, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.SetForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.DelayedFixup(InternalEntityEntry entry, INavigation navigation, InternalEntityEntry referencedEntry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.InitialFixup(InternalEntityEntry entry, ISet`1 handledForeignKeys, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.FireStateChanged(EntityState oldState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Nullable`1 forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode node, Boolean force, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityStateAsync(InternalEntityEntry entry, EntityState entityState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.AddAsync[TEntity](TEntity entity, CancellationToken cancellationToken)
+   at blog.Infrastructure.Repositories.RepositoryBase`1.AddAsync(TEntity entity) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Infrastructure/Repositories/RepositoryBase.cs:line 29
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:33:40.826 +08:00 [INF] Request finished in 5760.1396ms 500 text/html; charset=utf-8
+2018-12-28 09:35:25.531 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:35:25.533 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:35:25.535 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:35:25.535 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:35:25.540 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:36:26.173 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:36:26.825 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:36:26.908 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:36:26.915 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:36:26.920 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:36:27.002 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:36:28.928 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:36:29.075 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:36:29.120 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:36:29.319 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:36:29.711 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:36:33.183 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:36:34.214 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 4887.7965ms
+2018-12-28 09:36:34.216 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'PostTag' cannot be tracked because another instance with the same key value for {'PostId', 'TagId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 containingPrincipalKeys, IReadOnlyList`1 containingForeignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 keys, IReadOnlyList`1 foreignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.PropertyChanged(InternalEntityEntry entry, IPropertyBase propertyBase, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.PropertyChanged(InternalEntityEntry entry, IPropertyBase property, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.SetForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.DelayedFixup(InternalEntityEntry entry, INavigation navigation, InternalEntityEntry referencedEntry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.InitialFixup(InternalEntityEntry entry, ISet`1 handledForeignKeys, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.FireStateChanged(EntityState oldState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Nullable`1 forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode node, Boolean force, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityStateAsync(InternalEntityEntry entry, EntityState entityState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.AddAsync[TEntity](TEntity entity, CancellationToken cancellationToken)
+   at blog.Infrastructure.Repositories.RepositoryBase`1.AddAsync(TEntity entity) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Infrastructure/Repositories/RepositoryBase.cs:line 29
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:36:34.350 +08:00 [INF] Request finished in 5422.7904ms 500 text/html; charset=utf-8
+2018-12-28 09:37:51.640 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:37:52.159 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:37:52.227 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:37:52.232 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:37:52.237 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:37:52.296 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:38:04.478 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:38:04.604 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:38:04.649 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:38:04.852 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:38:05.263 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:38:52.220 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:38:52.763 +08:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Posts` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:38:52.833 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Tags` AS `t`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:38:52.839 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:38:52.843 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2018-12-28 09:38:52.903 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2018-12-28 09:38:57.769 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/post application/json 341
+2018-12-28 09:38:57.901 +08:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2018-12-28 09:38:57.948 +08:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.
+2018-12-28 09:38:58.152 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Post (blog.Api)
+2018-12-28 09:38:58.573 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Post (blog.Api) with arguments (["blog.Infrastructure.ViewModels.PostViewModel"]) - Validation state: "Valid"
+2018-12-28 09:39:03.402 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2018-12-28 09:39:04.424 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Post (blog.Api) in 6265.5746ms
+2018-12-28 09:39:04.426 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'PostTag' cannot be tracked because another instance with the same key value for {'PostId', 'TagId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.UpdateIdentityMap(InternalEntityEntry entry, IKey key)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 containingPrincipalKeys, IReadOnlyList`1 containingForeignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.KeyPropertyChanged(InternalEntityEntry entry, IProperty property, IReadOnlyList`1 keys, IReadOnlyList`1 foreignKeys, Object oldValue, Object newValue)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectKeyChange(InternalEntityEntry entry, IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.PropertyChanged(InternalEntityEntry entry, IPropertyBase propertyBase, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.PropertyChanged(InternalEntityEntry entry, IPropertyBase property, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.SetForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey, Boolean setModified)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.DelayedFixup(InternalEntityEntry entry, INavigation navigation, InternalEntityEntry referencedEntry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.InitialFixup(InternalEntityEntry entry, ISet`1 handledForeignKeys, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.StateChanged(InternalEntityEntry entry, EntityState oldState, Boolean fromQuery)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.FireStateChanged(EntityState oldState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Nullable`1 forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode node, Boolean force, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode node, TState state, Func`4 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityStateAsync(InternalEntityEntry entry, EntityState entityState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.AddAsync[TEntity](TEntity entity, CancellationToken cancellationToken)
+   at blog.Infrastructure.Repositories.RepositoryBase`1.AddAsync(TEntity entity) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Infrastructure/Repositories/RepositoryBase.cs:line 29
+   at blog.Api.Controllers.PostController.Post(PostViewModel postAddViewModel) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 78
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-12-28 09:39:04.527 +08:00 [INF] Request finished in 6758.6476ms 500 text/html; charset=utf-8
