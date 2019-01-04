@@ -6,6 +6,7 @@ namespace blog.Infrastructure.ViewModels
 {
     public class TagViewModel
     {
-        public List<Tag> Tags { get; set; }
+        public int Id { get; set; }
+        public string TagName { get; set; }
     }
 }

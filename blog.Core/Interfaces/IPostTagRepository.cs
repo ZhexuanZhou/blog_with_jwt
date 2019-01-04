@@ -8,6 +8,5 @@ namespace blog.Core.Interfaces
     public interface IPostTagRepository : IRepositoryBase<PostTag>
     {
         Task AddPostTagsAsync(Post post, List<Tag> tags);
-
     }
 }

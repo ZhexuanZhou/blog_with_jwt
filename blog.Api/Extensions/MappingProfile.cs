@@ -18,10 +18,10 @@ namespace blog.Api.Extensions
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email))
                 .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.Password));
 
-            //CreateMap<Tag, TagViewModel>()
-                //.ForMember(dest => dest.TagName, opt => opt.MapFrom(src => src.TagName));
+            CreateMap<Tag, TagViewModel>();
 
             CreateMap<Post, PostViewModel>()
+                .ForMember(dest=>dest.Id, opt=>opt.MapFrom(src=>src.Id))
                 .ForMember(dest => dest.AuthorId, opt => opt.MapFrom(src => src.Author.Id))
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.PostTags))
                 .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.User.LastName))
@@ -30,8 +30,6 @@ namespace blog.Api.Extensions
                 .ForMember(dest => dest.CreateTime, opt => opt.MapFrom(src => src.CreateTime))
                 .ForMember(dest => dest.LastModify, opt => opt.MapFrom(src => src.LastModify))
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.PostTags.Select(y => y.Tag).ToList()));
-
-
 
             //CreateMap<PostViewModel, Post>()
             //    .ForMember(dest => dest.PostTags, opt => opt.MapFrom(src => src.Tags))
@@ -46,12 +44,22 @@ namespace blog.Api.Extensions
             //   .ForMember(dest => dest.Tag, opt => opt.MapFrom(src => src));
             //CreateMap<TagViewModel, Tag>();
 
+            CreateMap<User, AuthorViewModel>()
+                .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.LastName));
+
+            CreateMap<Author, AuthorViewModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
+
             CreateMap<PostViewModel, Post>()
                 .ForMember(dest => dest.AuthorId, opt => opt.MapFrom(src => src.AuthorId))
                 .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Body, opt => opt.MapFrom(src => src.Body))
                 .ForMember(dest => dest.CreateTime, opt => opt.MapFrom(src => src.CreateTime))
                 .ForMember(dest => dest.LastModify, opt => opt.MapFrom(src => src.LastModify));
+
+            CreateMap<PostUpdateViewModel, Post>();
+            CreateMap<Post, PostUpdateViewModel>().
+                ForMember(dest => dest.Tags, opt => opt.Ignore());
         }
     }
 }

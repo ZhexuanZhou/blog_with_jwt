@@ -18,11 +18,11 @@ namespace blog.Infrastructure.Repositories
             _repositoryDbContext = repositoryDbContext;
         }
 
-        public async Task AddPostAsync(Post post)
-        {
-            throw new NotImplementedException();
-            //_repositoryDbContext.PostTags.AddAsync()
-        }
+        //public async Task AddPostAsync(Post post)
+        //{
+        //    throw new NotImplementedException();
+        //    //_repositoryDbContext.PostTags.AddAsync()
+        //}
        
 
         public async Task<PaginatedList<Post>> GetAllPostAsync(PostParameters postParameters)
@@ -36,10 +36,8 @@ namespace blog.Infrastructure.Repositories
                 query = query.Where(x => x.Title.ToLowerInvariant() == title);
 
             }
-            query = query.Include(p => p.PostTags)
-                    .ThenInclude(pt => pt.Tag)
-                    .Include(p => p.Author)
-                    .ThenInclude(a=>a.User);
+            query = query.Include(p => p.PostTags).ThenInclude(pt=>pt.Tag)
+                .Include(p=>p.Author).ThenInclude(a=>a.User);
             //排序
             //query = query.ApplySort(postParameters.Orderby, _propertyMappingContainer.Resolve<PostResource, Post>());
 
@@ -59,9 +57,9 @@ namespace blog.Infrastructure.Repositories
             var query = _repositoryDbContext.Posts.AsQueryable();
             query = query.Where(p => p.Id.Equals(id))
                 .Include(p => p.PostTags)
-                .ThenInclude(pt => pt.Tag)
-                .Include(p => p.Author)
-                .ThenInclude(a => a.User);
+                .ThenInclude(pt => pt.Tag);
+                //.Include(p => p.Author)
+                //.ThenInclude(a => a.User);
             return await query.FirstOrDefaultAsync();
         }
     }

@@ -10,6 +10,6 @@ namespace blog.Core.Interfaces
         Task<PaginatedList<Post>> GetAllPostAsync(PostParameters postParameters);
         Task<Post> GetPostByIdAsync(int id);
 
-        Task AddPostAsync(Post post);
+        //Task AddPostAsync(Post post);
     }
 }
