@@ -1827,3 +1827,1502 @@ ORDER BY `t2`.`AuthorId` DESC, `t2`.`Id` DESC
 2019-01-05 09:23:51.219 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[blog.Infrastructure.ViewModels.PostViewModel, blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
 2019-01-05 09:23:51.244 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 1266.8947ms
 2019-01-05 09:23:51.254 +08:00 [INF] Request finished in 1649.6757ms 200 application/json; charset=utf-8
+2019-01-05 09:59:10.313 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 09:59:11.079 +08:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 09:59:11.154 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 09:59:11.238 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:02:15.544 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:02:16.168 +08:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:02:16.292 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:02:16.386 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:02:26.059 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post application/json 
+2019-01-05 10:02:26.402 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:02:26.830 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:02:26.858 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:02:28.328 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 1922.2522000000001ms
+2019-01-05 10:02:28.332 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: ordering
+   at System.Linq.Dynamic.Core.Validation.Check.NotEmpty(String value, String parameterName)
+   at System.Linq.Dynamic.Core.DynamicQueryableExtensions.OrderBy(IQueryable source, ParsingConfig config, String ordering, Object[] args)
+   at System.Linq.Dynamic.Core.DynamicQueryableExtensions.OrderBy[TSource](IQueryable`1 source, ParsingConfig config, String ordering, Object[] args)
+   at blog.Infrastructure.Repositories.PostRepository.GetAllPostAsync(PostParameters postParameters) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Infrastructure/Repositories/PostRepository.cs:line 54
+   at blog.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-01-05 10:02:28.461 +08:00 [INF] Request finished in 2403.282ms 500 text/html; charset=utf-8
+2019-01-05 10:02:45.322 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?orderby=authorid%20desc,%20id%20desc application/json 
+2019-01-05 10:02:45.324 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:02:45.333 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:02:45.334 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:02:45.456 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:02:45.459 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:02:45.530 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:02:45.811 +08:00 [INF] Executed DbCommand (41ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`AuthorId` DESC, `p`.`Id` DESC
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:02:46.043 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`, `p0`.`AuthorId`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`AuthorId` DESC, `p0`.`Id` DESC
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`AuthorId` DESC, `t2`.`Id` DESC
+2019-01-05 10:02:46.214 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 878.32670000000007ms.
+2019-01-05 10:02:46.230 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:02:46.247 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 922.8442ms
+2019-01-05 10:02:46.251 +08:00 [INF] Request finished in 928.5347ms 200 application/json; charset=utf-8
+2019-01-05 10:03:57.371 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:03:58.008 +08:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:03:58.098 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:03:58.224 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:03:59.738 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?orderby=authorid%20desc,%20id%20desc application/json 
+2019-01-05 10:04:00.072 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:04:00.494 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:04:00.525 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:04:00.614 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:04:00.616 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:04:00.679 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:04:00.963 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`AuthorId` DESC, `p`.`Id` DESC
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:04:01.101 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`, `p0`.`AuthorId`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`AuthorId` DESC, `p0`.`Id` DESC
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`AuthorId` DESC, `t2`.`Id` DESC
+2019-01-05 10:04:01.286 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 782.5546ms.
+2019-01-05 10:04:01.301 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:04:01.324 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 1248.5492000000002ms
+2019-01-05 10:04:01.334 +08:00 [INF] Request finished in 1596.651ms 200 application/json; charset=utf-8
+2019-01-05 10:04:07.688 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post application/json 
+2019-01-05 10:04:07.690 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:04:07.694 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:04:07.694 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:04:07.696 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:04:07.696 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:04:07.794 +08:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:04:07.808 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_1)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 10:04:07.887 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:04:07.898 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:04:07.906 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 212.4367ms.
+2019-01-05 10:04:07.907 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:04:07.908 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 217.0652ms
+2019-01-05 10:04:07.908 +08:00 [INF] Request finished in 220.1208ms 200 application/json; charset=utf-8
+2019-01-05 10:04:45.595 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post&fields=title application/json 
+2019-01-05 10:04:45.598 +08:00 [INF] Request finished in 2.9086ms 404 
+2019-01-05 10:04:56.043 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post application/json 
+2019-01-05 10:04:56.044 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:04:56.044 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:04:56.045 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:04:56.077 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:04:56.155 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:04:56.160 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:04:56.166 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 121.0781ms.
+2019-01-05 10:04:56.166 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:04:56.166 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 122.3225ms
+2019-01-05 10:04:56.167 +08:00 [INF] Request finished in 144.5664ms 200 application/json; charset=utf-8
+2019-01-05 10:05:15.455 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post&fields=Id application/json 
+2019-01-05 10:05:15.456 +08:00 [INF] Request finished in 0.3622ms 404 
+2019-01-05 10:05:30.962 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?fields=Id application/json 
+2019-01-05 10:05:30.962 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:05:30.963 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:05:30.963 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:05:30.999 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:05:31.030 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:05:31.058 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:05:31.111 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 147.5529ms.
+2019-01-05 10:05:31.111 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:05:31.111 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 149.06570000000002ms
+2019-01-05 10:05:31.112 +08:00 [INF] Request finished in 150.3247ms 200 application/json; charset=utf-8
+2019-01-05 10:05:37.256 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?fields=Id,title application/json 
+2019-01-05 10:05:37.257 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:05:37.257 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:05:37.258 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:05:37.318 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:05:37.540 +08:00 [INF] Executed DbCommand (99ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:05:37.573 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:05:37.578 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 320.5068ms.
+2019-01-05 10:05:37.578 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:05:37.579 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 321.6537ms
+2019-01-05 10:05:37.579 +08:00 [INF] Request finished in 322.4275ms 200 application/json; charset=utf-8
+2019-01-05 10:05:42.905 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?fields=Id,title,tags application/json 
+2019-01-05 10:05:42.905 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:05:42.905 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:05:42.906 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:05:42.939 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:05:42.950 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:05:42.993 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:05:42.997 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 91.4263ms.
+2019-01-05 10:05:42.997 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:05:42.998 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 92.6683ms
+2019-01-05 10:05:42.998 +08:00 [INF] Request finished in 93.8291ms 200 application/json; charset=utf-8
+2019-01-05 10:10:14.932 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:10:15.650 +08:00 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:10:15.718 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:10:15.791 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:10:36.032 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts/13?fields=Id,title,tags application/json 
+2019-01-05 10:10:36.419 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:10:36.823 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["13","Id,title,tags"]) - Validation state: "Valid"
+2019-01-05 10:10:36.836 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:10:37.117 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`
+FROM `Posts` AS `p`
+WHERE `p`.`Id` = @__id_0
+ORDER BY `p`.`Id`
+LIMIT 1
+2019-01-05 10:10:37.195 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT `p0`.`Id`
+    FROM `Posts` AS `p0`
+    WHERE `p0`.`Id` = @__id_0
+    ORDER BY `p0`.`Id`
+    LIMIT 1
+) AS `t` ON `p.PostTags`.`PostId` = `t`.`Id`
+ORDER BY `t`.`Id`
+2019-01-05 10:10:37.268 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 435.00600000000003ms.
+2019-01-05 10:10:37.280 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Dynamic.ExpandoObject'.
+2019-01-05 10:10:37.365 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 942.2994ms
+2019-01-05 10:10:37.372 +08:00 [INF] Request finished in 1339.9841ms 200 application/json; charset=utf-8
+2019-01-05 10:10:43.555 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts/13?fields=Id,title,tags application/json 
+2019-01-05 10:10:43.556 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:10:43.559 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["13","Id,title,tags"]) - Validation state: "Valid"
+2019-01-05 10:10:43.560 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:10:43.687 +08:00 [INF] Executed DbCommand (94ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`
+FROM `Posts` AS `p`
+WHERE `p`.`Id` = @__id_0
+ORDER BY `p`.`Id`
+LIMIT 1
+2019-01-05 10:10:43.697 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT `p0`.`Id`
+    FROM `Posts` AS `p0`
+    WHERE `p0`.`Id` = @__id_0
+    ORDER BY `p0`.`Id`
+    LIMIT 1
+) AS `t` ON `p.PostTags`.`PostId` = `t`.`Id`
+ORDER BY `t`.`Id`
+2019-01-05 10:10:43.734 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 174.8101ms.
+2019-01-05 10:10:43.741 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Dynamic.ExpandoObject'.
+2019-01-05 10:10:43.745 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 188.407ms
+2019-01-05 10:10:43.750 +08:00 [INF] Request finished in 194.5906ms 200 application/json; charset=utf-8
+2019-01-05 10:24:29.181 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?orderby=ids%20desc application/json 
+2019-01-05 10:24:29.186 +08:00 [INF] Request finished in 4.4984ms 404 
+2019-01-05 10:24:33.017 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?orderby=ids%20desc application/json 
+2019-01-05 10:24:33.017 +08:00 [INF] Request finished in 0.8244ms 404 
+2019-01-05 10:24:34.011 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?orderby=ids%20desc application/json 
+2019-01-05 10:24:34.011 +08:00 [INF] Request finished in 0.7187ms 404 
+2019-01-05 10:24:38.818 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/post?orderby=id%20desc application/json 
+2019-01-05 10:24:38.819 +08:00 [INF] Request finished in 1.0082ms 404 
+2019-01-05 10:24:58.948 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?orderby=id application/json 
+2019-01-05 10:24:58.959 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:24:58.970 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:24:58.994 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:24:59.088 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:24:59.093 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:24:59.212 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:24:59.385 +08:00 [INF] Executed DbCommand (74ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:24:59.529 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:24:59.580 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 609.5678ms.
+2019-01-05 10:24:59.580 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:24:59.585 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 625.47520000000009ms
+2019-01-05 10:24:59.585 +08:00 [INF] Request finished in 637.1708ms 200 application/json; charset=utf-8
+2019-01-05 10:25:02.644 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?orderby=ids application/json 
+2019-01-05 10:25:02.644 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:25:02.645 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:25:02.646 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:25:03.800 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 1155.7467000000001ms
+2019-01-05 10:25:03.801 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+No property or field 'ids' exists in type 'Post' (at index 0)
+2019-01-05 10:25:03.923 +08:00 [INF] Request finished in 1278.7645ms 500 text/html; charset=utf-8
+2019-01-05 10:26:31.113 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?orderby=id%20desc application/json 
+2019-01-05 10:26:31.143 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:26:31.144 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:26:31.144 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:26:31.146 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:26:31.146 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:26:31.247 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:26:31.451 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id` DESC
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:26:31.462 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id` DESC
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id` DESC
+2019-01-05 10:26:31.467 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 323.60360000000003ms.
+2019-01-05 10:26:31.468 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:26:31.468 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 325.38890000000004ms
+2019-01-05 10:26:31.469 +08:00 [INF] Request finished in 355.2602ms 200 application/json; charset=utf-8
+2019-01-05 10:40:33.682 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:40:34.424 +08:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:40:34.507 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:40:34.596 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:40:35.296 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts/1 application/json 
+2019-01-05 10:40:35.660 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:40:36.124 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 460.77700000000004ms
+2019-01-05 10:40:36.129 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'blog.Infrastructure.Helpers.ITypeHelperService' while attempting to activate 'blog.Api.Controllers.PostController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-01-05 10:40:36.255 +08:00 [INF] Request finished in 961.667ms 500 text/html; charset=utf-8
+2019-01-05 10:42:15.399 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:42:16.209 +08:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:42:16.357 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:42:16.452 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:42:17.292 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts/1 application/json 
+2019-01-05 10:42:17.605 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:42:18.015 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["1",""]) - Validation state: "Valid"
+2019-01-05 10:42:18.029 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:42:18.439 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`
+FROM `Posts` AS `p`
+WHERE `p`.`Id` = @__id_0
+ORDER BY `p`.`Id`
+LIMIT 1
+2019-01-05 10:42:18.459 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 435.8863ms.
+2019-01-05 10:42:18.473 +08:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-01-05 10:42:18.479 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 870.04410000000007ms
+2019-01-05 10:42:18.491 +08:00 [INF] Request finished in 1199.5508ms 404 
+2019-01-05 10:42:28.477 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts application/json 
+2019-01-05 10:42:28.491 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:42:28.506 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:42:28.529 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:42:28.542 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:42:28.544 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:42:28.621 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:42:28.638 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_1)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 10:42:28.804 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:42:28.999 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:42:29.162 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 655.7446ms.
+2019-01-05 10:42:29.168 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2019-01-05 10:42:29.186 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 695.23110000000008ms
+2019-01-05 10:42:29.188 +08:00 [INF] Request finished in 710.8042ms 200 application/json; charset=utf-8
+2019-01-05 10:42:34.745 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts/13 application/json 
+2019-01-05 10:42:34.747 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:42:34.747 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["13",""]) - Validation state: "Valid"
+2019-01-05 10:42:34.748 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:42:34.803 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`
+FROM `Posts` AS `p`
+WHERE `p`.`Id` = @__id_0
+ORDER BY `p`.`Id`
+LIMIT 1
+2019-01-05 10:42:34.891 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT `p0`.`Id`
+    FROM `Posts` AS `p0`
+    WHERE `p0`.`Id` = @__id_0
+    ORDER BY `p0`.`Id`
+    LIMIT 1
+) AS `t` ON `p.PostTags`.`PostId` = `t`.`Id`
+ORDER BY `t`.`Id`
+2019-01-05 10:42:34.909 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 161.74370000000002ms.
+2019-01-05 10:42:34.910 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Dynamic.ExpandoObject'.
+2019-01-05 10:42:34.914 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 166.788ms
+2019-01-05 10:42:34.914 +08:00 [INF] Request finished in 189.1309ms 200 application/json; charset=utf-8
+2019-01-05 10:46:41.119 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:46:41.883 +08:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:46:41.951 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:46:42.022 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:46:47.136 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts application/json 
+2019-01-05 10:46:47.483 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:46:47.953 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:46:47.986 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:46:48.006 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:46:48.008 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:46:48.100 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:46:48.124 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_1)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 10:46:48.432 +08:00 [INF] Executed DbCommand (41ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+2019-01-05 10:46:48.613 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_1 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:46:48.793 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 831.2593ms.
+2019-01-05 10:46:48.811 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a],[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 10:46:49.898 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 2411.2729ms
+2019-01-05 10:46:49.903 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-01-05 10:46:49.983 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2019-01-05 10:46:49.985 +08:00 [ERR] Connection id "0HLJIN04FBK22", Request id "0HLJIN04FBK22:00000001": An unhandled exception was thrown by the application.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-01-05 10:46:49.996 +08:00 [INF] Request finished in 2860.6845ms 200 application/json; charset=utf-8
+2019-01-05 10:47:11.387 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/json 
+2019-01-05 10:47:11.390 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:47:11.399 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:47:11.400 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:47:11.447 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:47:11.459 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 10:47:11.595 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 10:47:11.632 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:47:11.638 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 238.75580000000002ms.
+2019-01-05 10:47:11.639 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a],[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 10:47:12.492 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 1101.9522ms
+2019-01-05 10:47:12.492 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-01-05 10:47:12.495 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2019-01-05 10:47:12.496 +08:00 [ERR] Connection id "0HLJIN04FBK24", Request id "0HLJIN04FBK24:00000001": An unhandled exception was thrown by the application.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-01-05 10:47:12.501 +08:00 [INF] Request finished in 1113.8749ms 200 application/json; charset=utf-8
+2019-01-05 10:47:23.120 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/json 
+2019-01-05 10:47:23.120 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:47:23.121 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:47:23.123 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:47:23.175 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:47:23.256 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 10:47:23.285 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:48:36.756 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 73632.9035ms.
+2019-01-05 10:48:36.757 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a],[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 10:48:37.419 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 74297.609ms
+2019-01-05 10:48:37.420 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-01-05 10:48:37.424 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2019-01-05 10:48:37.425 +08:00 [ERR] Connection id "0HLJIN04FBK26", Request id "0HLJIN04FBK26:00000001": An unhandled exception was thrown by the application.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-01-05 10:48:37.442 +08:00 [INF] Request finished in 74320.5438ms 200 application/json; charset=utf-8
+2019-01-05 10:49:44.333 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:49:45.052 +08:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:49:45.121 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:49:45.193 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:49:46.359 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/json 
+2019-01-05 10:49:46.688 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:49:47.170 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:49:47.200 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:49:47.215 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:49:47.218 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:49:47.292 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:49:47.312 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 10:49:47.670 +08:00 [INF] Executed DbCommand (47ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 10:49:47.846 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:49:51.472 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4293.5535ms.
+2019-01-05 10:49:51.488 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a],[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 10:49:52.343 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 5649.8227000000006ms
+2019-01-05 10:49:52.349 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-01-05 10:49:52.423 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2019-01-05 10:49:52.425 +08:00 [ERR] Connection id "0HLJIN1PS90F8", Request id "0HLJIN1PS90F8:00000001": An unhandled exception was thrown by the application.
+System.Collections.Generic.KeyNotFoundException: The specified key 'Id' does not exist in the ExpandoObject.
+   at System.Dynamic.ExpandoObject.System.Collections.Generic.IDictionary<System.String,System.Object>.get_Item(String key)
+   at blog.Api.Controllers.PostController.<>c__DisplayClass6_0.<Get>b__0(ExpandoObject x) in /Users/zhexuanzhou/Projects/blog_with_Identity/blog.Api/Controllers/PostController.cs:line 71
+   at System.Linq.Enumerable.SelectListIterator`2.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-01-05 10:49:52.438 +08:00 [INF] Request finished in 6079.5447ms 200 application/json; charset=utf-8
+2019-01-05 10:50:54.578 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:50:55.317 +08:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:50:55.400 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:50:55.478 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:50:56.977 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/json 
+2019-01-05 10:50:57.303 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:50:57.713 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:50:57.742 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:50:57.758 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:50:57.761 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:50:57.829 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:50:57.849 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 10:50:58.159 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 10:50:58.315 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:51:01.636 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3914.5213000000003ms.
+2019-01-05 10:51:01.653 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[System.Dynamic.ExpandoObject, System.Linq.Expressions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a],[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 10:51:01.686 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 4379.6505000000006ms
+2019-01-05 10:51:01.698 +08:00 [INF] Request finished in 4721.5343ms 200 application/json; charset=utf-8
+2019-01-05 10:55:10.785 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:55:11.630 +08:00 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:55:11.719 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 10:55:11.810 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 10:55:15.022 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/json 
+2019-01-05 10:55:15.370 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 10:55:15.916 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 10:55:15.950 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 10:55:15.968 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:55:15.974 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 10:55:16.060 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 10:55:16.085 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 10:55:16.391 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 10:55:16.598 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 10:55:16.783 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 855.6508ms.
+2019-01-05 10:55:16.800 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.IEnumerable`1[[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[blog.Infrastructure.HATEOAS.LinkResources, blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 10:55:16.835 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 1461.0659ms
+2019-01-05 10:55:16.847 +08:00 [INF] Request finished in 1825.9224ms 200 application/json; charset=utf-8
+2019-01-05 11:02:09.588 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/json 
+2019-01-05 11:02:09.591 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 11:02:09.594 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 11:02:09.596 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 11:02:09.686 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 11:02:09.773 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 11:02:09.778 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 11:02:09.785 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 191.2844ms.
+2019-01-05 11:02:09.786 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.IEnumerable`1[[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[blog.Infrastructure.HATEOAS.LinkResources, blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 11:02:09.787 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 195.66140000000001ms
+2019-01-05 11:02:09.788 +08:00 [INF] Request finished in 199.8337ms 200 application/json; charset=utf-8
+2019-01-05 11:02:28.032 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/zhexuan.hateoas+json 
+2019-01-05 11:02:28.033 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 11:02:28.033 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 11:02:28.034 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 11:02:28.067 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 11:02:28.078 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 11:02:28.091 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 11:02:28.097 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 62.992900000000006ms.
+2019-01-05 11:02:28.097 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.IEnumerable`1[[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[blog.Infrastructure.HATEOAS.LinkResources, blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 11:02:28.097 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 64.2532ms
+2019-01-05 11:02:28.098 +08:00 [INF] Request finished in 65.7673ms 200 application/json; charset=utf-8
+2019-01-05 11:03:35.955 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/zhexuan.hateoas+json 
+2019-01-05 11:03:35.956 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 11:03:35.958 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 11:03:35.959 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 11:03:36.024 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 11:03:36.028 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 11:03:36.033 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 11:03:54.947 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 18988.699500000002ms.
+2019-01-05 11:03:54.948 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.IEnumerable`1[[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[blog.Infrastructure.HATEOAS.LinkResources, blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 11:03:54.948 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 18991.127800000002ms
+2019-01-05 11:03:54.949 +08:00 [INF] Request finished in 18993.5014ms 200 application/json; charset=utf-8
+2019-01-05 11:04:26.746 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1 application/json 
+2019-01-05 11:04:26.770 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 11:04:26.770 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","*/*"]) - Validation state: "Valid"
+2019-01-05 11:04:26.770 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 11:04:26.831 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 11:04:26.967 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 11:04:26.971 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 11:06:11.851 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 11:06:12.484 +08:00 [INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `PostTags` AS `p`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 11:06:12.578 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Comments` AS `c`)
+    THEN TRUE ELSE FALSE
+END
+2019-01-05 11:06:12.668 +08:00 [INF] User profile is available. Using '/Users/zhexuanzhou/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-01-05 11:06:13.446 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1  
+2019-01-05 11:06:13.767 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 11:06:14.347 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","application/json"]) - Validation state: "Valid"
+2019-01-05 11:06:14.381 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 11:06:14.397 +08:00 [WRN] The Include operation for navigation '[p].PostTags.Tag' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 11:06:14.400 +08:00 [WRN] The Include operation for navigation '[p].Author.User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-01-05 11:06:14.472 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 11:06:14.491 +08:00 [WRN] Query: '(from Post p in DbSet<Post> select [p]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-05 11:06:14.798 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 11:06:14.999 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 11:06:22.350 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7989.5785000000005ms.
+2019-01-05 11:06:22.367 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[blog.Infrastructure.ViewModels.PostViewModel, blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-05 11:06:22.401 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 8630.3913000000011ms
+2019-01-05 11:06:22.412 +08:00 [INF] Request finished in 8966.4452ms 200 application/json; charset=utf-8
+2019-01-05 11:06:36.817 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageSize=3&pageIndex=1  
+2019-01-05 11:06:36.818 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action blog.Api.Controllers.PostController.Get (blog.Api)
+2019-01-05 11:06:36.820 +08:00 [INF] Executing action method blog.Api.Controllers.PostController.Get (blog.Api) with arguments (["blog.Core.Entities.PostParameters","application/zhexuan.hateoas+json"]) - Validation state: "Valid"
+2019-01-05 11:06:36.820 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'RepositoryDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql' with options: None
+2019-01-05 11:06:36.894 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Posts` AS `p`
+2019-01-05 11:06:37.060 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`AuthorId`, `p`.`Body`, `p`.`CreateTime`, `p`.`LastModify`, `p`.`Title`, `p.Author`.`Id`, `p.Author`.`Gender`, `p.Author`.`UserId`, `t`.`Id`, `t`.`AccessFailedCount`, `t`.`ConcurrencyStamp`, `t`.`Discriminator`, `t`.`Email`, `t`.`EmailConfirmed`, `t`.`LockoutEnabled`, `t`.`LockoutEnd`, `t`.`NormalizedEmail`, `t`.`NormalizedUserName`, `t`.`PasswordHash`, `t`.`PhoneNumber`, `t`.`PhoneNumberConfirmed`, `t`.`SecurityStamp`, `t`.`TwoFactorEnabled`, `t`.`UserName`, `t`.`FirstName`, `t`.`LastName`
+FROM `Posts` AS `p`
+INNER JOIN `Authors` AS `p.Author` ON `p`.`AuthorId` = `p.Author`.`Id`
+LEFT JOIN (
+    SELECT `p.Author.User`.*
+    FROM `AspNetUsers` AS `p.Author.User`
+    WHERE `p.Author.User`.`Discriminator` = 'User'
+) AS `t` ON `p.Author`.`UserId` = `t`.`Id`
+ORDER BY `p`.`Id`
+LIMIT @__p_0 OFFSET @__p_0
+2019-01-05 11:06:37.068 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `p.PostTags`.`PostId`, `p.PostTags`.`TagId`, `p.PostTags`.`Id`, `p.Tag`.`Id`, `p.Tag`.`TagName`
+FROM `PostTags` AS `p.PostTags`
+INNER JOIN `Tags` AS `p.Tag` ON `p.PostTags`.`TagId` = `p.Tag`.`Id`
+INNER JOIN (
+    SELECT DISTINCT `t1`.*
+    FROM (
+        SELECT `p0`.`Id`
+        FROM `Posts` AS `p0`
+        INNER JOIN `Authors` AS `p.Author0` ON `p0`.`AuthorId` = `p.Author0`.`Id`
+        LEFT JOIN (
+            SELECT `p.Author.User0`.*
+            FROM `AspNetUsers` AS `p.Author.User0`
+            WHERE `p.Author.User0`.`Discriminator` = 'User'
+        ) AS `t0` ON `p.Author0`.`UserId` = `t0`.`Id`
+        ORDER BY `p0`.`Id`
+        LIMIT @__p_0 OFFSET @__p_0
+    ) AS `t1`
+) AS `t2` ON `p.PostTags`.`PostId` = `t2`.`Id`
+ORDER BY `t2`.`Id`
+2019-01-05 11:06:42.578 +08:00 [INF] Executed action method blog.Api.Controllers.PostController.Get (blog.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5757.7484ms.
+2019-01-05 11:06:42.579 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.IEnumerable`1[[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[blog.Infrastructure.HATEOAS.LinkResources, blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-01-05 11:06:42.592 +08:00 [INF] Executed action blog.Api.Controllers.PostController.Get (blog.Api) in 5773.4546ms
+2019-01-05 11:06:42.593 +08:00 [INF] Request finished in 5775.5987ms 200 application/zhexuan.hateoas+json; charset=utf-8

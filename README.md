@@ -337,6 +337,11 @@
          vehicles = vehicles.AsQueryable().OrderBy("Make ASC, Year DESC").ToList();
          ```
 
+   10. 塑性, HATEOAS, 自定义Media Type
+
+      1. EnumerableExtensions, ObjectExtensions用与塑形
+      2. HATEOAS
+      3. 自定义Media Type
 
 ## 常用dotnet 命令
 

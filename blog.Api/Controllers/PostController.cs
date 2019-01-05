@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using blog.Core.Entities;
 using blog.Core.Interfaces;
+using blog.Infrastructure.Extensions;
+using blog.Infrastructure.HATEOAS;
+using blog.Infrastructure.Helpers;
 //using blog.Infrastructure.Services;
 using blog.Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -15,25 +19,28 @@ using Newtonsoft.Json.Serialization;
 
 namespace blog.Api.Controllers
 {
-    [Route("api/post")]
+    [Route("api/posts")]
     public class PostController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly IUrlHelper _urlHelper;
+        private readonly ITypeHelperService _typeHelperService;
 
         public PostController(
             IUnitOfWork unitOfWork,
             IMapper mapper,
             UserManager<User> userManager,
-            IUrlHelper urlHelper
+            IUrlHelper urlHelper,
+            ITypeHelperService typeHelperService
             )
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _userManager = userManager;
             _urlHelper = urlHelper;
+            _typeHelperService = typeHelperService;
         }
 
         [HttpGet(Name = "GetPosts")]
@@ -41,35 +48,91 @@ namespace blog.Api.Controllers
         public async Task<IActionResult> Get(PostParameters postParameters,
             [FromHeader(Name = "Accept")]string mediaType)
         {
+            if (!_typeHelperService.TypeHasProperties<PostViewModel>(postParameters.Fields))
+            {
+                return BadRequest("Fields does not exist!");
+            }
+
             var postsList = await _unitOfWork.PostRepository
                 .GetAllPostAsync(postParameters);
 
             var postResources = _mapper
                 .Map<IEnumerable<Post>, IEnumerable<PostViewModel>>(postsList);
 
-            //翻页连接
-            var previousPageLink = postsList.HasPrevious ?
-                    CreatePostUri(postParameters, PaginationResourceUriType.PreviousPage) : null;
 
-            var nextPageLink = postsList.HasNext ?
-               CreatePostUri(postParameters, PaginationResourceUriType.NextPage) : null;
 
-            // 翻页元数据
-            var meta = new
+            if (mediaType == "application/zhexuan.hateoas+json")
             {
-                PageSize = postsList.PageSize,
-                PageIndex = postsList.PageIndex,
-                TotalItemCount = postsList.TotalItemCount,
-                PageCount = postsList.PageCount,
-                previousPageLink,
-                nextPageLink
-            };
-            Response.Headers.Add("X-Pagenation", JsonConvert.SerializeObject(meta, new JsonSerializerSettings
-            {
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
-            }));
+                //资源塑形
+                var postShaped = postResources.ToDynamicIEnumerable(postParameters.Fields);
+                //为每笔数据单独添加links
+                var shapedWithLinks = postShaped.Select(x =>
+                {
+                    var dic = x as IDictionary<string, object>;
+                    var postlinks = CreateLinksForPost((int)dic["Id"], postParameters.Fields);
+                    dic.Add("links", postlinks);
+                    return dic;
+                });
 
-            return Ok(postResources);
+
+                //为整体添加links
+                var links = CreateLinksForPosts(postParameters, postsList.HasPrevious, postsList.HasNext);
+
+                var result = new
+                {
+                    value = shapedWithLinks,
+                    links
+                };
+
+                //翻页连接
+                var previousPageLink = postsList.HasPrevious ?
+                        CreatePostUri(postParameters, PaginationResourceUriType.PreviousPage) : null;
+
+                var nextPageLink = postsList.HasNext ?
+                   CreatePostUri(postParameters, PaginationResourceUriType.NextPage) : null;
+
+                // 翻页元数据
+                var meta = new
+                {
+                    postsList.PageSize,
+                    postsList.PageIndex,
+                    postsList.TotalItemCount,
+                    postsList.PageCount,
+                    previousPageLink,
+                    nextPageLink
+                };
+                Response.Headers.Add("X-Pagenation", JsonConvert.SerializeObject(meta, new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                }));
+
+                return Ok(result);
+            }
+            else
+            {
+                var previousPageLink = postsList.HasPrevious ?
+                        CreatePostUri(postParameters, PaginationResourceUriType.PreviousPage) : null;
+
+                var nextPageLink = postsList.HasNext ?
+                   CreatePostUri(postParameters, PaginationResourceUriType.NextPage) : null;
+
+                // 翻页元数据
+                var meta = new
+                {
+                    postsList.PageSize,
+                    postsList.PageIndex,
+                    postsList.TotalItemCount,
+                    postsList.PageCount,
+                    previousPageLink,
+                    nextPageLink
+                };
+                Response.Headers.Add("X-Pagenation", JsonConvert.SerializeObject(meta, new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                }));
+
+                return Ok(postResources);
+            }
         }
 
         private string CreatePostUri(PostParameters postParameters, PaginationResourceUriType uriType)
@@ -107,10 +170,69 @@ namespace blog.Api.Controllers
             }
         }
 
+        private IEnumerable<LinkResources> CreateLinksForPost(int id, string fields = null)
+        {
+            var links = new List<LinkResources>();
+
+            if (string.IsNullOrWhiteSpace(fields))
+            {
+                links.Add(
+                    new LinkResources(_urlHelper.Link("GetPosts", new { id }), "self", "GET")
+                );
+            }
+            else
+            {
+                links.Add(
+                    new LinkResources(_urlHelper.Link("GetPosts", new { id, fields }), "self", "GET")
+                );
+            }
+            links.Add(
+                    new LinkResources(_urlHelper.Link("DeletePost", new { id }), "delete_post", "DELETE")
+                );
+            return links;
+        }
+
+        private IEnumerable<LinkResources> CreateLinksForPosts(PostParameters postParameters,
+            bool hasPrevious, bool hasNext)
+        {
+            var links = new List<LinkResources>
+            {
+                new LinkResources(
+                    CreatePostUri(postParameters, PaginationResourceUriType.CurrentPage),
+                    "self", "GET"
+                )
+            };
+
+            if (hasPrevious)
+            {
+                links.Add(
+                    new LinkResources(
+                        CreatePostUri(postParameters, PaginationResourceUriType.PreviousPage),
+                        "previous_page", "GET"
+                    )
+                );
+            }
+
+            if (hasNext)
+            {
+                links.Add(
+                    new LinkResources(
+                        CreatePostUri(postParameters, PaginationResourceUriType.NextPage),
+                        "next_page", "GET"
+                    )
+                );
+            }
+            return links;
+        }
+
         [HttpGet("{id}")]
         [AllowAnonymous]
         public async Task<IActionResult> Get(int id, string fields = null)
         {
+            if (!_typeHelperService.TypeHasProperties<PostViewModel>(fields))
+            {
+                return BadRequest("Fields does not exist!");
+            }
             var post = await _unitOfWork.PostRepository.GetPostByIdAsync(id);
 
             if (post == null)
@@ -119,8 +241,12 @@ namespace blog.Api.Controllers
             }
 
             var postResource = _mapper.Map<Post, PostViewModel>(post);
-            return Ok(postResource);
+            var shapedPost = postResource.ToDynamic(fields);
+            var links = CreateLinksForPost(id, fields);
 
+            var shapedPostLinks = shapedPost as IDictionary<string, object>;
+            shapedPostLinks.Add("links", links);
+            return Ok(shapedPostLinks);
         }
 
         [HttpPost(Name = "CreatePost")]

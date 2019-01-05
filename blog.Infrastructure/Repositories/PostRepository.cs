@@ -51,7 +51,8 @@ namespace blog.Infrastructure.Repositories
                 .Include(p=>p.Author).ThenInclude(a=>a.User);
 
             //排序
-            query = query.OrderBy(postParameters.Orderby);
+            if (!string.IsNullOrEmpty(postParameters.Orderby))
+                query = query.OrderBy(postParameters.Orderby);
 
             // 翻页
             var count = await query.CountAsync();

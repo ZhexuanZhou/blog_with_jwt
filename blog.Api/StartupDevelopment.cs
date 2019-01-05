@@ -7,6 +7,7 @@ using AutoMapper;
 using blog.Core.Entities;
 using blog.Infrastructure.Databases;
 using blog.Infrastructure.Extensions;
+using blog.Infrastructure.Helpers;
 //using blog.Infrastructure.Services;
 using blog.Infrastructure.ViewModels;
 using blog.Infrastructure.ViewModelValidators;
@@ -17,6 +18,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace blog.Api
 {
@@ -45,9 +48,22 @@ namespace blog.Api
             });
             services.AddAutoMapper();
             services
-                .AddMvc()
-                .AddJsonOptions(options => {
-                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                .AddMvc(options =>
+                {
+                    var outputFormatter = options.OutputFormatters.OfType<JsonOutputFormatter>().FirstOrDefault();
+                    if (outputFormatter != null)
+                    {
+                        outputFormatter.SupportedMediaTypes.Add("application/zhexuan.hateoas+json");
+                    }
+                })
+                //.AddJsonOptions(options =>
+                //{
+                //    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                //})
+                .AddJsonOptions(options =>
+                {
+                    // 使返回的json键都为小写状态
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
 
             // 添加Identity
@@ -90,6 +106,9 @@ namespace blog.Api
                 var actionContext = factory.GetService<IActionContextAccessor>().ActionContext;
                 return new UrlHelper(actionContext);
             });
+
+            //注册TypeHelperService
+            services.AddTransient<ITypeHelperService, TypeHelperService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
