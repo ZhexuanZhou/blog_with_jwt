@@ -12,14 +12,8 @@ namespace blog.Core.Entities
 
         public int TotalItemCount
         {
-            get
-            {
-                return _totalItemCount;
-            }
-            set 
-            {
-                _totalItemCount = value > 0 ? value : 0; 
-            }
+            get => _totalItemCount;
+            set => _totalItemCount = value >= 0 ? value : 0;
         }
 
         public int PageCount => TotalItemCount / PageSize + (TotalItemCount % PageSize > 0 ? 1 : 0);
@@ -27,7 +21,7 @@ namespace blog.Core.Entities
         public bool HasPrevious => PageIndex > 0;
         public bool HasNext => PageIndex < PageCount - 1;
 
-        public PaginatedList(int pageSize, int pageIndex, int totalItemCount, IEnumerable<T> data)
+        public PaginatedList(int pageSize , int pageIndex, int totalItemCount, IEnumerable<T> data)
         {
             PageSize = pageSize;
             PageIndex = pageIndex;

@@ -265,7 +265,78 @@
 
    5. 添加Resource，并使用AutoMap对Resource和Entity进行Mapping。
 
-   6. 添加paginatedlist和queryparameter
+   6. 添加Fluent Validation
+
+   7. 翻页
+
+      1. 添加paginatedlist和queryparameter， pagequeryparameter（翻页，翻页原数据）
+
+      2. 生成前后页的Url，使用IUrlHelper
+
+         1. 创建PaginationResourceUriType 枚举类
+
+         2. 注册UrlHelper
+
+            ```C#
+            //注册Urihelper
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddScoped<IUrlHelper>(factory =>
+            {
+            	var actionContext = factory
+                    .GetService<IActionContextAccessor>().ActionContext;
+                return new UrlHelper(actionContext);
+            });
+            ```
+
+         3. 创建CreatePostUri方法为post添加url
+
+   8. 过滤
+
+      1. 在其Parameter中添加变量用于查询
+
+      2. 在其Repository中添加以下代码
+
+         ```C#
+         var query = _repositoryDbContext.Posts.AsQueryable();
+         if (!string.IsNullOrEmpty(postParameters.Title))
+         {
+             // 在PostParameters中添加title，可根据需求更改
+             var title = postParameters.Title.ToLowerInvariant();
+             // query = query.Where(x=>x.Title.ToLowerInvariant().Contains(title));
+             query = query.Where(x => x.Title.ToLowerInvariant() == title);
+         
+         }
+         ```
+
+      3. 搜索与过滤类似
+
+   9. 排序（不是很懂）
+
+      1. PropertyMappingContainer
+
+         1. PropertyMapping(PostPropertyMapping): resource到entity的属性映射
+            1. MappedProperty
+
+      2. 在startup中注册
+
+         ```C#
+         //注册排序的propertyMapping
+         var propertyMappingContainer = new PropertyMappingContainer();
+         propertyMappingContainer.Register<PostPropertyMapping>();
+         services.AddSingleton<IPropertyMappingContainer>(propertyMappingContainer);
+         ```
+
+      3. 添加QueryableExtensions
+
+      4. To smiply usage:
+
+         ```C#
+         // Too easy without any complication:
+         
+         using System.Linq.Dynamic.Core; 
+         vehicles = vehicles.AsQueryable().OrderBy("Make ASC, Year DESC").ToList();
+         ```
+
 
 ## 常用dotnet 命令
 

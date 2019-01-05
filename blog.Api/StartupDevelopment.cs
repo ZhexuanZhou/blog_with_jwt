@@ -7,11 +7,18 @@ using AutoMapper;
 using blog.Core.Entities;
 using blog.Infrastructure.Databases;
 using blog.Infrastructure.Extensions;
+//using blog.Infrastructure.Services;
+using blog.Infrastructure.ViewModels;
+using blog.Infrastructure.ViewModelValidators;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -72,6 +79,17 @@ namespace blog.Api
                     };
                 });
             services.AddInfrastructureExtension();
+
+            // add fluent validator
+            services.AddTransient<IValidator<PostViewModel>, PostViewModelValidator>();
+
+            //注册Urihelper
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddScoped<IUrlHelper>(factory =>
+            {
+                var actionContext = factory.GetService<IActionContextAccessor>().ActionContext;
+                return new UrlHelper(actionContext);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,6 +10,7 @@ namespace blog.Infrastructure.Databases.EntityConfigurations
         public void Configure(EntityTypeBuilder<PostTag> builder)
         {
             builder.HasKey(pt => new { pt.PostId, pt.TagId });
+
         }
     }
 }

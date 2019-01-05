@@ -25,4 +25,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="PostPropertyMapping.cs" />
+  </ItemGroup>
 </Project>

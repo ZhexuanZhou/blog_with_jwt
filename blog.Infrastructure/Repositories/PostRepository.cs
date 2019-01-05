@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 using blog.Core.Entities;
 using blog.Core.Interfaces;
 using blog.Infrastructure.Databases;
+using blog.Infrastructure.Extensions;
+//using blog.Infrastructure.Services;
+using blog.Infrastructure.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace blog.Infrastructure.Repositories
@@ -12,10 +16,16 @@ namespace blog.Infrastructure.Repositories
     public class PostRepository : RepositoryBase<Post>, IPostRepository
     {
         private readonly RepositoryDbContext _repositoryDbContext;
+        //private readonly IPropertyMappingContainer _propertyMappingContainer;
 
-        public PostRepository(RepositoryDbContext repositoryDbContext) : base(repositoryDbContext)
+        public PostRepository(
+            RepositoryDbContext repositoryDbContext
+            //IPropertyMappingContainer propertyMappingContainer
+            ) 
+            : base(repositoryDbContext)
         {
             _repositoryDbContext = repositoryDbContext;
+            //_propertyMappingContainer = propertyMappingContainer;
         }
 
         //public async Task AddPostAsync(Post post)
@@ -28,6 +38,7 @@ namespace blog.Infrastructure.Repositories
         public async Task<PaginatedList<Post>> GetAllPostAsync(PostParameters postParameters)
         {
             var query = _repositoryDbContext.Posts.AsQueryable();
+            // 过滤
             if (!string.IsNullOrEmpty(postParameters.Title))
             {
                 // 在PostParameters中添加title，可根据需求更改
@@ -38,18 +49,18 @@ namespace blog.Infrastructure.Repositories
             }
             query = query.Include(p => p.PostTags).ThenInclude(pt=>pt.Tag)
                 .Include(p=>p.Author).ThenInclude(a=>a.User);
+
             //排序
-            //query = query.ApplySort(postParameters.Orderby, _propertyMappingContainer.Resolve<PostResource, Post>());
+            query = query.OrderBy(postParameters.Orderby);
 
-            // 翻页query = query.OrderBy(x=>x.Id);
+            // 翻页
             var count = await query.CountAsync();
-
             var data = await query
                 .Skip(postParameters.PageSize * postParameters.PageIndex)
                 .Take(postParameters.PageSize)
                 .ToListAsync();
 
-            return new PaginatedList<Post>(postParameters.PageIndex, postParameters.PageSize, count, data);
+            return new PaginatedList<Post>(postParameters.PageSize, postParameters.PageIndex, count, data);
         }
 
         public async Task<Post> GetPostByIdAsync(int id)

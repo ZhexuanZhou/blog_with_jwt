@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using blog.Core.Entities;
 using blog.Core.Interfaces;
 using blog.Infrastructure.Databases;
+//using blog.Infrastructure.Services;
 
 namespace blog.Infrastructure.Repositories
 {
@@ -14,10 +15,12 @@ namespace blog.Infrastructure.Repositories
         private IPostRepository _postRepository;
         private IPostTagRepository _postTagRepository;
         private ITagRepository _tagRepository;
+        //private readonly IPropertyMappingContainer _propertyMappingContainer;
 
         public UnitOfWork(RepositoryDbContext repositoryDbContext)
         {
             _repositoryDbContext = repositoryDbContext;
+            //_propertyMappingContainer = propertyMappingContainer;
         }
 
         public IAuthorRepository AuthorRepository
