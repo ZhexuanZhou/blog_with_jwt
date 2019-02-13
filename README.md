@@ -35,13 +35,7 @@
 | Aritcal_Image |     ID (PK, Unique, Not null)     |         Auto increase         |   int   |
 |               | Article_ID (FK, Unique, Not null) |         From Artical          |   int   |
 |               |             Image_url             |                               |         |
-|               |                                   |                               |         |
-|               |                                   |                               |         |
-|               |                                   |                               |         |
-|               |                                   |                               |         |
-|               |                                   |                               |         |
-|               |                                   |                               |         |
-|               |                                   |                               |         |
+
 
 ## 开发流程
 
@@ -105,7 +99,7 @@
 
          3. 在使用权限时，通过`UserManager<User> _userManager`管理用户，包括新建，验证等
 
-         4. 验证用户权限后，创建Claims$\rightarrow$ SymmetricSecurityKey$\rightarrow$SigningCredentials$\rightarrow$JwtSecurityToken，代码如下
+         4. 验证用户权限后，创建Claims $\rightarrow$ SymmetricSecurityKey $\rightarrow$ SigningCredentials $\rightarrow$ JwtSecurityToken，代码如下
 
             ```c#
             private string BuildToken(User user)
